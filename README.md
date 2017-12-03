@@ -10,13 +10,13 @@
 [点击看效果](https://jiazhuamh.github.io/javascript/)
 
 ### 二、实现思路
-#### 1.使用bootstrap框架和JQuery
-#### 2.视频整屏设置
+#### 1. 使用bootstrap框架和JQuery
+#### 2. 视频整屏设置
 - 使用```container-fluid```去掉网页两边的白边
 - 设置视频```border-bottom 20px```，和下面图片之间拉开一定距离
-#### 3.瀑布流照片墙
+#### 3. 瀑布流照片墙
 - 使用```col-md-4```设置三列
-#### 4.滚动悬停设置
+#### 4. 滚动悬停设置
 ```javascript
 
 $(document).ready(function(){
