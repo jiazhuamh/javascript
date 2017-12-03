@@ -5,9 +5,9 @@
 - 瀑布流显示照片
 - 视频滚动到顶部时固定，露出一部分做页眉
 
-[点击查看模型](https://jiazhuamh.github.io/javascript/float.html)
+[点击查看模型](https://jiazhuamh.github.io/scroll-float/float.html)
 
-[点击看效果](https://jiazhuamh.github.io/javascript/)
+[点击看效果](https://jiazhuamh.github.io/scroll-float/)
 
 ### 二、实现思路
 #### 1. 使用bootstrap框架和JQuery
