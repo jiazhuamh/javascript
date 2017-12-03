@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滚动到顶部后固定</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", "STXihei", "华文细黑", serif;
+        }
+
+        #fixbar {
+            /*border: 2px solid red;*/
+        }
+
+        video {
+
+            width: 100%;
+            height: auto;
+            border: 0px;
+            border-bottom: 20px;
+            border-style: solid;
+            border-color: white;
+        }
+
+        .words {
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="fixbar" class="container-fluid">
+        <div class="row">
+            <video loop="loop" autoplay="True" audio="True" poster="videos/prince.jpg">
+                <source src="videos/prince.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-4">
+
+                <div>
+                    <img class="img-responsive" src="images/andRose.jpg">
+                    <h3 class="words">
+                        你要对你驯养的东西负责，<br>
+                        你要对你的玫瑰花负责。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+                <div>
+                    <img class="img-responsive" src="images/king.jpg">
+                    <h3 class="words">
+                        星星发亮，<br>
+                        是为了让每一个人，<br>
+                        有一天都能找到属于自己的星星。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+                <div>
+                    <img class="img-responsive" src="images/desert.jpg">
+                    <h3 class="words">
+                        所有的大人都曾经是小孩，<br>
+                        虽然，<br>
+                        只有少数的人记得。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+            </div>
+
+            <!-- middle column -->
+            <div class="col-md-4">
+
+                <div>
+                    <img class="img-responsive" src="images/title.jpg">
+                    <h3 class="words">
+                        只有用心灵才能看清事物本质，<br>
+                        真正重要的东西是肉眼无法看见的。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+                <div>
+                    <img class="img-responsive" src="images/withFox.jpg">
+                    <h3 class="words">
+                        如果你说你在下午四点来，<br>
+                        从三点钟开始，<br>
+                        我就开始感觉很快乐，<br>
+                        时间越临近，<br>
+                        我就越来越感到快乐。<br>
+                        <br>
+                        到了四点钟的时候，<br>
+                        我就会坐立不安，<br>
+                        我发现了幸福的价值，<br>
+                        但是如果你随便什么时候来，<br>
+                        我就不知道在什么时候准备好迎接你的心情了。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+                <div>
+                    <img class="img-responsive" src="images/smell.jpg">
+                    <h3 class="words">
+                        你的玫瑰花之所以变得如此重要，<br>
+                        是因为你在她身上花费了时间。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+            </div>
+
+            <!-- right column -->
+            <div class="col-md-4">
+
+                <div>
+                    <img class="img-responsive" src="images/andFox.jpg">
+                    <h3 class="words">
+                        如果你要驯服一个人，<br>
+                        就要冒着掉眼泪的危险。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+                <div>
+                    <img class="img-responsive" src="images/sunset.jpg">
+                    <h3 class="words">
+                        时间会缓和所有的悲伤，<br>
+                        当你的悲伤被安抚以后，<br>
+                        你就会因为认识过我而感到满足。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+
+                <div>
+                    <img class="img-responsive" src="images/see.jpg">
+                    <h3 class="words">
+                        当一个人情绪低落的时候，<br>
+                        他会格外喜欢看日落。<br>
+                        <br><br>
+                    </h3>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    var dv = $('#fixbar');
+    var st;
+    var width = dv.css('width');
+    var height = dv.css('height')
+
+    var bottom = dv.outerHeight() - 60;
+
+
+    $(window).scroll(function() {
+        st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
+        if (st > bottom) {
+            dv.css({
+                position: 'fixed',
+                top: -bottom,
+                width: width,
+                height: height,
+                zIndex: 999
+
+            });
+            $('body').css({
+                paddingTop: bottom + 60
+            });
+        } else if (dv.css('position') != 'static') {
+            dv.css({
+                position: 'static',
+            });
+            $('body').css({
+                paddingTop: 0
+            });
+        }
+    });
+
+
+});
+
+</script>
+</body>
+</html>
